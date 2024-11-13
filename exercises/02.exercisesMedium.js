@@ -1,8 +1,8 @@
-// ### Ejercicios Week 0
+/* ----------------------------------
+ ? Ejercicios Week 0 Nivel Medio
+ --------------------------------- */
 
-// ## Nivel Medio
-
-// 1. Crea una función que elimine el primer y último caracter de un string recibido por parámetros.
+//  1. Crea una función que elimine el primer y último caracter de un string recibido por parámetros.
 
 /* const removeLastFirt = function(value = '') {
     let result = ''
@@ -14,42 +14,55 @@
  */
 //Opción 2 Métodos
 
-const removeLastFirt = function(value = '') {
-    let result = ''
-    for (let i = 1; i < value.length-1; i++) {
-        result += value[i];
-    }
-    const r = value.slice(1, value.length - 1)
-    return r
+const removeLastFirt = function (value = "") {
+  let result = "";
+  for (let i = 1; i < value.length - 1; i++) {
+    result += value[i];
+  }
+  const r = value.slice(1, value.length - 1);
+  return r;
+};
+console.log(removeLastFirt("camión"));
+
+//  2. Escribe una función que reciba una palabra y revise si es un palíndromo.
+
+function isPalindrome(value = "") {
+  let textArray = value.split("");
+  let textReverse = textArray.reverse();
+
+  console.log(textArray, textReverse);
+
+  return value === textReverse.join('')
+    ? `${value} ES un Palíndromo`
+    : `${value} NO es un Palíndromo`;
+
+    
 }
-console.log(removeLastFirt('camión'));
 
-// 2. Escribe una función que reciba una palabra y revise si es un palíndromo.
-
+console.log(isPalindrome("ama"));
 
 // 3. Crea una función que cuente las vocales que contiene una palabra dada por parámetros.
 
-const countVocals = function(value = '') {
+const countVocals = function (value = "") {
+  const lowerValue = value.toLowerCase();
+  let accumulator = 0;
+  const vocals = "aeiouáéíóúü";
 
-    let count = 0
-    const vocals = ['a', 'e', 'i',' o', 'u', 'á', 'é',' í', 'ó', 'ú', 'ü']
-    //const vocals = 'aeiouáéíóúü' podemos dejar un string
-    for (let i = 0; i < value.length; i++) {
-        const item = value[i].toLocaleLowerCase; //convertir a minusculas
-        //const item = value[i];
-        // count += vocals.includes(item) incorporas un boleano 
-        if (vocals.includes(item)) {
-            count++
-        }
-        
-    }
-    return count
+  for (let i = 0; i < lowerValue.length; i++) {
+    const item = lowerValue[i];
+    accumulator += vocals.includes(item);
+    // if (vocals.includes(item)) {
+    //     accumulator++;
+    // }
+  }
+  return accumulator;
+};
 
-}
-
-console.log(countVocals('lagarto'))
+console.log(countVocals("El Murciélago verde")); // 8
 
 // 4. Crea una función que verifique si una cadena de texto recibida por parámetros es un pangrama (contiene todas las letras del abecedario).
+
+
 
 // 5. Escribe una función que compruebe si una cadena de texto contiene todas las vocales.
 
