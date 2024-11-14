@@ -32,11 +32,9 @@ function isPalindrome(value = "") {
 
   console.log(textArray, textReverse);
 
-  return value === textReverse.join('')
+  return value === textReverse.join("")
     ? `${value} ES un Palíndromo`
     : `${value} NO es un Palíndromo`;
-
-    
 }
 
 console.log(isPalindrome("ama"));
@@ -62,19 +60,95 @@ console.log(countVocals("El Murciélago verde")); // 8
 
 // 4. Crea una función que verifique si una cadena de texto recibida por parámetros es un pangrama (contiene todas las letras del abecedario).
 
+function isPangram(value) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  value = value.toLowerCase();
 
+  console.log(value);
+  return alphabet.split("").every((letter) => value.includes(letter));
+}
+console.log(
+  isPangram(
+    "Un jugoso zumo de piña y kiwi bien frío es exquisito y no lleva alcohol"
+  )
+);
 
 // 5. Escribe una función que compruebe si una cadena de texto contiene todas las vocales.
 
+function containVocals(text) {
+  const vocals = "aeiou";
+  word = text.toLowerCase().replace(/[^aeiou]/g, "");
+
+  console.log(word);
+  return vocals.split("").every((letter) => word.includes(letter));
+}
+console.log("5.");
+console.log(containVocals("surroccidental"));
+
 // 6. Crea una función que realice una cuenta atrás desde un número recibido por parámetros.
+
+function countBack(number) {
+  for (let i = number; i >= 0; i--) {
+    console.log(i);
+  }
+}
+console.log(countBack(10));
 
 // 7. Escribe una función que reciba por parámetros el año de nacimiento, y calcule la edad de la persona.
 
+function agePerson(year) {
+  const todayAge = 2024;
+  const result = todayAge - year;
+
+  return `Tú edad es: ${result}`;
+}
+console.log(agePerson(1975));
+
 // 8. Crea una función que reciba la edad de una persona por parámetros y verifique si es mayor de edad. Imprime por consola un string con el resultado.
+function ofLegalAge(age) {
+  return age >= 18
+    ? `Tú edad es ${age}, eres mayor de edad`
+    : `Tú edad es ${age}, eres menor de edad`;
+}
+console.log(ofLegalAge(18));
 
 // 9. Crea una función que simule el lanzamiento de un dado e imprime por consola el resultado cada vez que se ejecuta.
 
+function rollDiceN(n) {
+  let accumulator = 0;
+  for (let i = 0; i < n; i++) {
+    const dice = Math.trunc(Math.random() * 6) + 1;
+    console.log("Valor del dado:", dice);
+    // accumulator = accumulator + dice
+    accumulator += dice;
+  }
+  console.log("Total:", accumulator);
+}
+
+rollDiceN(1)
+
 // 10. Crea una función que reciba un año por parámetros y compruebe e imprima por consola si el año es bisiesto o no.
+/* Tomar el año y dividirlo por 4. Si da un número entero, este es considerado bisiesto.
+    En el caso de los años divisibles por 100, luego se deben dividir por 400. Si resulta que la operación da un número    entero, se trata de un año bisiesto. */
+
+function leapAge(year) {
+  if (year % 4 === 0 || year % 400 === 0) {
+    console.log(`${year} Es un año bisiesto`);
+  } else if (year % 100 !== 0) {
+    console.log(`${year} No es un año bisiesto`);
+  }
+
+
+}
+
+leapAge(1996);
+leapAge(2001);
+leapAge(1976);
+
+
+ 
+
+
 
 // 11. Escribe una función que simula el juego piedra, papel y tijera. Recibirá como parámetro una opción (piedra, papel o tijera) en forma de string. La máquina, elegirá automáticamente una opción aleatoria. Imprime por consola ambas elecciones y en caso de ganar el jugador un mensaje de victoria, y en caso de perder uno de derrota.
 
