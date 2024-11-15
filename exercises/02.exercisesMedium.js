@@ -97,8 +97,9 @@ console.log(countBack(10));
 // 7. Escribe una función que reciba por parámetros el año de nacimiento, y calcule la edad de la persona.
 
 function agePerson(year) {
-  const todayAge = 2024;
-  const result = todayAge - year;
+  const todayYear = new Date();
+  const actualDay = todayYear.getFullYear()
+  const result = actualDay - year;
 
   return `Tú edad es: ${result}`;
 }
